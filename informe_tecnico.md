@@ -1,0 +1,6 @@
+- Descripción del problema de negocio.
+- Objetivos del proyecto.
+- Definición de KPIs que resolverán el problema de negocio.
+- Descripción de las fuentes de datos utilizadas.
+- Preparación y análisis exploratorio de los datos (EDA).
+- Metodología utilizada (CRISP-DM). 
