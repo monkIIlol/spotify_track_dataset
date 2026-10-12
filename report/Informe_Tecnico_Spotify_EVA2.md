@@ -3,9 +3,10 @@
 **Asignatura:** MLY1101 — Machine Learning  
 **Caso:** C — Inteligencia musical y análisis de popularidad de canciones  
 **Formato:** Informe técnico reproducible en Markdown
-**Integrantes**:  - Diego Torres
-                  - Vicente Tapia
-                  - Cristian Urcullú
+**Integrantes**:  
+   - Diego Torres            
+   - Vicente Tapia
+   - Cristian Urcullú
 
 ---
 
@@ -117,11 +118,11 @@ Los principales hallazgos del EDA fueron:
 
 La matriz de correlación confirma que ninguna característica de audio, considerada de manera individual, mantiene una relación lineal fuerte con `popularity`.
 
-![Matriz de correlación entre variables de audio y popularity](images/03_matriz_correlacion_pearson.png)
+![Matriz de correlación entre variables de audio y popularity](../images/03_matriz_correlacion_pearson.png)
 
 La comparación por género mostró diferencias claras en popularidad promedio entre categorías. Este resultado se considera relevante para el modelamiento, pero no implica que un género tenga mayor calidad o que pertenecer a él provoque una determinada popularidad.
 
-![Popularidad promedio por género](images/04_popularidad_promedio_genero.png)
+![Popularidad promedio por género](../images/04_popularidad_promedio_genero.png)
 
 Durante la preparación también se realizaron las siguientes transformaciones:
 
@@ -209,7 +210,7 @@ Los resultados finales fueron:
 | Regresión Lineal combinada | 11,833 | 0,351 | 30,9% |
 | Árbol de Decisión combinado | **11,159** | **0,368** | **34,8%** |
 
-![Comparación de MAE de los modelos supervisados](images/13_comparacion_mae_supervisados.png)
+![Comparación de MAE de los modelos supervisados](../images/13_comparacion_mae_supervisados.png)
 
 El **Árbol de Decisión obtiene el mejor desempeño** de los modelos supervisados evaluados. Su mejora sobre la Regresión Lineal existe, aunque es bastante menor que la mejora obtenida al incorporar información de género.
 
@@ -241,7 +242,7 @@ Para elegir el número de clusters se utilizaron dos criterios:
 - el **método del codo**, que indicó **K = 4**;
 - el **coeficiente de Silhouette**, cuyo valor máximo se obtuvo con **K = 2**.
 
-![Selección del número de clusters](images/14_kmeans_seleccion_k.png)
+![Selección del número de clusters](../images/14_kmeans_seleccion_k.png)
 
 Aunque el mayor Silhouette se obtuvo con K=2, el método del codo señaló K=4. Se seleccionó **K=4** porque permite describir cuatro perfiles sonoros diferenciables, manteniendo explícitamente que la separación entre ellos es limitada. Por lo tanto, no se presenta K=4 como un número óptimo absoluto, sino como una solución descriptiva adecuada para el objetivo del análisis.
 
@@ -256,7 +257,7 @@ Después de revisar las características promedio de cada grupo se asignaron eti
 | **En vivo / hablado** | Mayor `liveness` y `speechiness` | 7.003 | 33,4 | 34 |
 | **Intenso / rápido** | Mayor energía y tempo, menor `acousticness` | 27.317 | 33,6 | 33 |
 
-![Características promedio de los clusters](images/14_centroides.png)
+![Características promedio de los clusters](../images/14_centroides.png)
 
 Las diferencias de popularidad entre los cuatro perfiles son pequeñas: sus medias se encuentran aproximadamente entre **30,4 y 34,2 puntos**. Esto indica que la segmentación sonora describe diferencias entre canciones, pero no genera grupos claramente separados por nivel de `popularity`.
 
@@ -264,7 +265,7 @@ Para apoyar la interpretación se utilizó **PCA**, reduciendo las nueve variabl
 
 Los dos primeros componentes explican aproximadamente el **48% de la variabilidad total**. El primer componente diferencia principalmente canciones más energéticas y fuertes de aquellas más acústicas e instrumentales. El segundo diferencia principalmente según `danceability` y `valence`, junto con aportes de otras características.
 
-![Clusters representados mediante PCA](images/15_clusters_pca.png)
+![Clusters representados mediante PCA](../images/15_clusters_pca.png)
 
 La visualización muestra que **Suave / acústico** aparece relativamente más diferenciado, mientras que **Bailable / positivo**, **En vivo / hablado** e **Intenso / rápido** presentan mayor superposición. El perfil En vivo / hablado es además el grupo más pequeño, con aproximadamente **7,8%** de las canciones.
 
@@ -392,42 +393,43 @@ Una etapa posterior podría incorporar información disponible antes de una deci
 
 ## 8. Reproducción del proyecto
 
-El análisis fue desarrollado en un notebook de Python preparado para ejecutarse de principio a fin en **Google Colab**.
+El proyecto está preparado para ejecutarse tanto en Google Colab como en un entorno local de PC, utilizando el mismo notebook. Al iniciarse, detecta la raíz del proyecto y utiliza las carpetas data/, images/ y models/.
 
-Al comenzar la ejecución, el notebook instala la dependencia `kneed`, importa las librerías utilizadas y descarga automáticamente el archivo `Spotify_Tracks_Dataset.csv` desde el repositorio del proyecto. También crea las carpetas `images/` y `models/` para almacenar visualizaciones y archivos generados durante el análisis.
+Si el dataset está disponible en data/Spotify_Tracks_Dataset.csv, se utiliza directamente. En caso contrario, se descarga automáticamente desde el repositorio.
 
-Para reproducir el proyecto:
+**Reproducir el proyecto en PC**:
 
-1. Abrir el archivo `.ipynb` en Google Colab.
+1. Clonar o descargar el repositorio.
+2. Instalar las dependencias desde la raíz del proyecto:
+> python -m pip install -r requirements.txt
+3. Abrir notebooks/Eva2_Spotify.ipynb en VS Code o Jupyter.
+4. Seleccionar el entorno de Python, reiniciar el kernel y ejecutar todas las celdas.
+
+**Reproducir el proyecto en Google Colab**:
+
+1. Abrir notebooks/Eva2_Spotify.ipynb en Google Colab.
 2. Reiniciar el entorno de ejecución.
-3. Ejecutar todas las celdas en orden.
-4. El dataset se descarga automáticamente.
-5. Durante la ejecución se generan las visualizaciones, modelos y métricas finales.
+3. Ejecutar todas las celdas.
 
 Se utiliza `random_state = 29` en los procesos que requieren aleatoriedad, permitiendo mantener resultados reproducibles entre ejecuciones.
 
 La estructura esperada del proyecto es:
 
 ```text
-Spotify_EVA2/
-│
+spotify_track_dataset/
+├── README.md
+├── requirements.txt
 ├── data/
 │   └── Spotify_Tracks_Dataset.csv
-│
 ├── notebooks/
 │   └── Eva2_Spotify.ipynb
-│
 ├── images/
-│   └── gráficos generados por el notebook
-│
+│   └── Gráficos generados
 ├── models/
-│   ├── regresion_lineal_audio_generos.joblib
-│   ├── arbol_decision_audio_generos.joblib
-│   ├── segmentacion_kmeans_pca.joblib
-│   ├── codificador_generos.joblib
-│   └── metricas.json
-│
-└── README.md
+│   └── Modelos y métricas
+└── report/
+    ├── Informe_Tecnico_Spotify_EP1.md
+    └── Informe_Tecnico_Spotify_EVA2.md
 ```
 
 El notebook fue comprobado desde un entorno reiniciado y puede ejecutarse completamente sin intervención manual durante el flujo de análisis.
@@ -442,7 +444,7 @@ La siguiente matriz define las responsabilidades para la **integración, revisi�
 |---|---|---|---|
 | Integración técnica del notebook y reproducibilidad | Participa | Participa | Revisión |
 | Preparación de datos y EDA | Participa | Revisión | Participa |
-| Modelamiento supervisado y evaluación | Participa | Participan | Revisión |
+| Modelamiento supervisado y evaluación | Participa | Participa | Revisión |
 | K-Means, PCA e interpretación de perfiles | Participa | Revisión | Participa |
 | Integración y redacción del informe técnico | Participa | Revisión | Revisión |
 | Revisión de consistencia entre notebook, informe y resultados | Coordina | Participa | Participa |

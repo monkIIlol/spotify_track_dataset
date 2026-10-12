@@ -2,9 +2,10 @@
 
 Proyecto semestral de **Machine Learning (MLY1101)** desarrollado sobre el **Spotify Tracks Dataset**.
 
-**Integrantes**:  - Diego Torres
-                  - Vicente Tapia
-                  - Cristian Urcullú
+**Integrantes**:  
+- Diego Torres
+- Vicente Tapia
+- Cristian Urcullú
 
 La Evaluación Parcial N°2 continúa el trabajo realizado en la EVA1 e incorpora modelamiento y evaluación mediante:
 
@@ -33,9 +34,9 @@ spotify_track_dataset/
 ├── notebooks/
 │   └── Eva2_Spotify.ipynb
 ├── images/
-│   └── gráficos generados por el notebook
+│   └── Gráficos generados
 ├── models/
-│   └── modelos y métricas generados
+│   └── Modelos y métricas
 └── report/
     ├── Informe_Tecnico_Spotify_EP1.md
     └── Informe_Tecnico_Spotify_EVA2.md
