@@ -1,0 +1,155 @@
+{
+  "filas_modelo": 89740,
+  "filas_train": 71792,
+  "filas_test": 17948,
+  "n_generos": 114,
+  "mae_baseline_test": 17.117032538444395,
+  "coef_generos_extremos": {
+    "iranian": -35.57916123471924,
+    "romance": -35.327040966457645,
+    "latin": -29.853978418978325,
+    "detroit-techno": -26.96707072741467,
+    "chicago-house": -26.21082629446682,
+    "jazz": -25.254041599915993,
+    "piano": 9.154270716098432,
+    "indian": 10.37883440735795,
+    "grunge": 10.5043420956804,
+    "chill": 12.416383956402306,
+    "k-pop": 14.642226430921271,
+    "pop-film": 16.539523134533965
+  },
+  "lineal_fuera_rango": 82,
+  "arbol_params": {
+    "max_depth": null,
+    "min_samples_leaf": 30
+  },
+  "arbol_mae_cv": 11.47101065393693,
+  "imp_arbol": {
+    "gen_iranian": 0.05024078139019566,
+    "gen_romance": 0.041534297876289435,
+    "duration_min": 0.040600052556466475,
+    "acousticness": 0.03418289983018304,
+    "gen_pop-film": 0.03389088337562927,
+    "loudness": 0.033664787152905384,
+    "gen_latin": 0.03238467630780784,
+    "danceability": 0.02612959045489754
+  },
+  "inercias": [
+    807659.9999999978,
+    633115.8478044445,
+    561924.8230507041,
+    505823.7357743958,
+    456302.0763637159,
+    414750.3900530619,
+    377414.72253800055,
+    356274.21865637385,
+    337813.93089831865,
+    324026.0063027354
+  ],
+  "siluetas": [
+    0.25535882268807963,
+    0.16438009253670663,
+    0.17258260858080993,
+    0.17840898846047767,
+    0.19101701090338744,
+    0.19627107987609493,
+    0.1760877870938018,
+    0.18073322350105786,
+    0.16744944994928676
+  ],
+  "k_elbow": 4,
+  "k_silueta_max": 2,
+  "silueta_final": 0.17258260858080993,
+  "perfil": [
+    {
+      "cluster": 0,
+      "Perfil": "Bailable / positivo",
+      "danceability": 0.69,
+      "energy": 0.68,
+      "loudness": -7.04,
+      "speechiness": 0.09,
+      "acousticness": 0.28,
+      "instrumentalness": 0.06,
+      "liveness": 0.16,
+      "valence": 0.67,
+      "tempo": 118.32,
+      "N_canciones": 36819,
+      "Popularidad_media": 34.2,
+      "Popularidad_mediana": 35.0
+    },
+    {
+      "cluster": 1,
+      "Perfil": "Suave / acústico",
+      "danceability": 0.44,
+      "energy": 0.26,
+      "loudness": -15.24,
+      "speechiness": 0.05,
+      "acousticness": 0.78,
+      "instrumentalness": 0.36,
+      "liveness": 0.16,
+      "valence": 0.28,
+      "tempo": 109.74,
+      "N_canciones": 18601,
+      "Popularidad_media": 30.4,
+      "Popularidad_mediana": 29.0
+    },
+    {
+      "cluster": 2,
+      "Perfil": "En vivo / hablado",
+      "danceability": 0.53,
+      "energy": 0.74,
+      "loudness": -7.85,
+      "speechiness": 0.21,
+      "acousticness": 0.37,
+      "instrumentalness": 0.07,
+      "liveness": 0.74,
+      "valence": 0.49,
+      "tempo": 119.91,
+      "N_canciones": 7003,
+      "Popularidad_media": 33.4,
+      "Popularidad_mediana": 34.0
+    },
+    {
+      "cluster": 3,
+      "Perfil": "Intenso / rápido",
+      "danceability": 0.48,
+      "energy": 0.8,
+      "loudness": -6.04,
+      "speechiness": 0.08,
+      "acousticness": 0.08,
+      "instrumentalness": 0.23,
+      "liveness": 0.19,
+      "valence": 0.33,
+      "tempo": 136.67,
+      "N_canciones": 27317,
+      "Popularidad_media": 33.6,
+      "Popularidad_mediana": 33.0
+    }
+  ],
+  "generos_cluster": {
+    "0": [
+      "reggaeton",
+      "latino",
+      "salsa"
+    ],
+    "1": [
+      "ambient",
+      "new-age",
+      "classical"
+    ],
+    "2": [
+      "comedy",
+      "pagode",
+      "samba"
+    ],
+    "3": [
+      "death-metal",
+      "grindcore",
+      "black-metal"
+    ]
+  },
+  "pca_var": [
+    0.320072618516906,
+    0.1598786782661002
+  ]
+}
